@@ -1,0 +1,2 @@
+subject,accuracy_static,macro_f1_static,lambda,sgd_alpha,param_source,n_train,n_test,fused_additivity_mae,fused_additivity_max_abs
+S9,0.6359447004608295,0.5234145970988077,0.75,0.0001,/kaggle/input/datasets/kabil08/checkpoints/cgap_fast_checkpoints-20261027T050656Z-1-001/cgap_fast_checkpoints/selected_checkpoint.csv,3064,217,1.7222045548918412e-16,7.771561172376096e-16

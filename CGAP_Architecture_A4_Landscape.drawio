@@ -1,0 +1,79 @@
+<mxfile host="Electron" agent="ChatGPT">
+  <diagram id="cgap-a4" name="CGAP Architecture">
+    <mxGraphModel dx="1243" dy="1073" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1122" pageHeight="794" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="input" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#6c8ebf;strokeWidth=1.5;fontFamily=Verdana;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;spacingTop=8;spacingBottom=8;fillColor=#dae8fc;fontSize=20;" value="&lt;b&gt;WESAD input&lt;/b&gt;&lt;br&gt;&lt;br&gt;ACC  ·  BVP&lt;br&gt;EDA  ·  TEMP&lt;br&gt;windowed signals" vertex="1">
+          <mxGeometry height="161" width="178" y="260.5" as="geometry" />
+        </mxCell>
+        <mxCell id="features" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#82b366;strokeWidth=1.5;fontFamily=Verdana;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;spacingTop=8;spacingBottom=8;fillColor=#d5e8d4;fontSize=20;" value="&lt;b&gt;Feature layer&lt;/b&gt;&lt;br&gt;&lt;br&gt;24 statistical&lt;br&gt;features per window&lt;br&gt;mean · std · min · max" vertex="1">
+          <mxGeometry height="208" width="165" x="200" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="global" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#9673a6;strokeWidth=1.5;fontFamily=Verdana;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;spacingTop=8;spacingBottom=8;fillColor=#e1d5e7;fontSize=20;" value="&lt;b&gt;Global branch&lt;/b&gt;&lt;br&gt;&lt;br&gt;Extra-Trees&lt;br&gt;80 trees&lt;br&gt;cross-subject patterns&lt;br&gt;class probabilities" vertex="1">
+          <mxGeometry height="190" width="217" x="386.5" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="online" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#b85450;strokeWidth=1.5;fontFamily=Verdana;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;spacingTop=8;spacingBottom=8;fillColor=#f8cecc;fontSize=20;" value="&lt;b&gt;Online branch&lt;/b&gt;&lt;br&gt;&lt;br&gt;scaled SGD&lt;br&gt;predict → reveal label&lt;br&gt;incremental update&lt;br&gt;user personalisation" vertex="1">
+          <mxGeometry height="190" width="240" x="375" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="fusion" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#0e8088;strokeWidth=1.5;fontFamily=Verdana;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;spacingTop=8;spacingBottom=8;fillColor=#b0e3e6;fontSize=20;" value="&lt;b&gt;CGAP fusion&lt;/b&gt;&lt;br&gt;&lt;br&gt;weighted probabilities&lt;br&gt;λ selected by tuning&lt;br&gt;global + online" vertex="1">
+          <mxGeometry height="173" width="217" x="581" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="state" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#82b366;strokeWidth=1.5;fontFamily=Verdana;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;spacingTop=8;spacingBottom=8;fillColor=#d5e8d4;fontSize=20;gradientColor=#97d077;" value="&lt;b&gt;State output&lt;/b&gt;&lt;br&gt;&lt;br&gt;baseline&lt;br&gt;stress&lt;br&gt;amusement" vertex="1">
+          <mxGeometry height="145" width="153" x="830" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="hci" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#666666;strokeWidth=1.5;fontFamily=Verdana;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;spacingTop=8;spacingBottom=8;fillColor=#f5f5f5;fontSize=20;gradientColor=#b3b3b3;" value="&lt;b&gt;HCI&lt;/b&gt;&lt;br&gt;&lt;br&gt;adapt&lt;br&gt;feedback" vertex="1">
+          <mxGeometry height="136.5" width="113" x="1007" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="e_input_features" edge="1" parent="1" source="input" style="edgeStyle=none;html=1;rounded=0;strokeColor=#334155;strokeWidth=2.5;endArrow=block;endFill=1;fontFamily=Verdana;fontSize=20;" target="features" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_features_global" edge="1" parent="1" source="features" style="edgeStyle=none;html=1;rounded=0;strokeColor=#334155;strokeWidth=2.5;endArrow=block;endFill=1;fontFamily=Verdana;fontSize=20;" target="global" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="378" y="252" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_features_online" edge="1" parent="1" source="features" style="edgeStyle=none;html=1;rounded=0;strokeColor=#334155;strokeWidth=2.5;endArrow=block;endFill=1;fontFamily=Verdana;fontSize=20;" target="online" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="378" y="466" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_global_fusion" edge="1" parent="1" source="global" style="edgeStyle=none;html=1;rounded=0;strokeColor=#334155;strokeWidth=2.5;endArrow=block;endFill=1;fontFamily=Verdana;fontSize=20;" target="fusion" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="235" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_online_fusion" edge="1" parent="1" source="online" style="edgeStyle=none;html=1;rounded=0;strokeColor=#334155;strokeWidth=2.5;endArrow=block;endFill=1;fontFamily=Verdana;fontSize=20;" target="fusion" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_fusion_state" edge="1" parent="1" source="fusion" style="edgeStyle=none;html=1;rounded=0;strokeColor=#334155;strokeWidth=2.5;endArrow=block;endFill=1;fontFamily=Verdana;fontSize=20;" target="state" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_state_hci" edge="1" parent="1" source="state" style="edgeStyle=none;html=1;rounded=0;strokeColor=#334155;strokeWidth=2.5;endArrow=block;endFill=1;fontFamily=Verdana;fontSize=20;" target="hci" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="equation" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Verdana;fontSize=20;fontStyle=2;fontColor=#172033;" value="p&lt;sub&gt;CGAP&lt;/sub&gt; = (1 − λ)p&lt;sub&gt;g&lt;/sub&gt; + λp&lt;sub&gt;o&lt;/sub&gt;" vertex="1">
+          <mxGeometry height="32" width="300" x="660" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="e_hci_feedback" edge="1" parent="1" source="hci" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;strokeColor=#64748B;strokeWidth=2.5;endArrow=block;endFill=1;fontFamily=Verdana;fontSize=20;" target="online" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="610" />
+              <mxPoint x="490" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

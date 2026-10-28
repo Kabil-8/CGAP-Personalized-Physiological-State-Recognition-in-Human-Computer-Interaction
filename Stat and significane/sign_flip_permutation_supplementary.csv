@@ -1,0 +1,21 @@
+metric,reference_model,comparison_model,n_participants,mean_difference,sign_flip_p_raw
+accuracy,CGAP Full,Global only,1,0.3087557603686636,1.0
+accuracy,CGAP Full,Online only,1,0.004608294930875778,1.0
+accuracy,CGAP Full,CGAP no online updates,1,0.3425499231950846,1.0
+accuracy,CGAP Full,CGAP no class weights,1,0.018433179723502335,1.0
+balanced_accuracy,CGAP Full,Global only,1,0.47032747032747035,1.0
+balanced_accuracy,CGAP Full,Online only,1,-0.005291005291005235,1.0
+balanced_accuracy,CGAP Full,CGAP no online updates,1,0.30159463492796834,1.0
+balanced_accuracy,CGAP Full,CGAP no class weights,1,0.032670032670032656,1.0
+macro_f1,CGAP Full,Global only,1,0.5012452403858796,1.0
+macro_f1,CGAP Full,Online only,1,0.010529654448332093,1.0
+macro_f1,CGAP Full,CGAP no online updates,1,0.4170835201041939,1.0
+macro_f1,CGAP Full,CGAP no class weights,1,0.01837702798373997,1.0
+macro_precision,CGAP Full,Global only,1,0.4027721881783317,1.0
+macro_precision,CGAP Full,Online only,1,0.028340922808276603,1.0
+macro_precision,CGAP Full,CGAP no online updates,1,0.20514162124476032,1.0
+macro_precision,CGAP Full,CGAP no class weights,1,-0.0027638390914086486,1.0
+macro_recall,CGAP Full,Global only,1,0.47032747032747035,1.0
+macro_recall,CGAP Full,Online only,1,-0.005291005291005235,1.0
+macro_recall,CGAP Full,CGAP no online updates,1,0.30159463492796823,1.0
+macro_recall,CGAP Full,CGAP no class weights,1,0.032670032670032656,1.0

@@ -1,0 +1,171 @@
+{
+  "protocol": "leakage-free nested participant-independent LOSO with repeated seeds",
+  "participants_all": [
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "S10",
+    "S11",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17"
+  ],
+  "participants_completed": [
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "S10",
+    "S11",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17"
+  ],
+  "seeds": [
+    "17",
+    "42",
+    "2026"
+  ],
+  "n_features": 24,
+  "features": [
+    "acc_1_mean",
+    "acc_1_std",
+    "acc_1_min",
+    "acc_1_max",
+    "acc_2_mean",
+    "acc_2_std",
+    "acc_2_min",
+    "acc_2_max",
+    "acc_3_mean",
+    "acc_3_std",
+    "acc_3_min",
+    "acc_3_max",
+    "bvp_mean",
+    "bvp_std",
+    "bvp_min",
+    "bvp_max",
+    "eda_mean",
+    "eda_std",
+    "eda_min",
+    "eda_max",
+    "temp_mean",
+    "temp_std",
+    "temp_min",
+    "temp_max"
+  ],
+  "excluded_columns": [
+    "subject",
+    "window",
+    "label",
+    "label_id"
+  ],
+  "classes_order": [
+    "baseline",
+    "stress",
+    "amusement"
+  ],
+  "n_trees": 80,
+  "grids": {
+    "LR": [
+      [
+        "0.1",
+        "balanced"
+      ],
+      [
+        "1.0",
+        "balanced"
+      ],
+      [
+        "10.0",
+        "balanced"
+      ]
+    ],
+    "SVM": [
+      [
+        "1.0",
+        "scale",
+        "balanced"
+      ],
+      [
+        "1.0",
+        "0.1",
+        "balanced"
+      ],
+      [
+        "10.0",
+        "scale",
+        "balanced"
+      ],
+      [
+        "10.0",
+        "0.1",
+        "balanced"
+      ]
+    ],
+    "tree": [
+      [
+        "sqrt",
+        "2"
+      ],
+      [
+        "0.8",
+        "2"
+      ],
+      [
+        "1.0",
+        "5"
+      ]
+    ],
+    "sgd_alpha": [
+      0.0001,
+      0.001
+    ],
+    "blend": [
+      0.25,
+      0.5,
+      0.75
+    ]
+  },
+  "inner_splits": 3,
+  "inner_test_size": 0.25,
+  "feedback_every": [
+    5,
+    20
+  ],
+  "online_protocol": "predict first, then reveal true label and update (labelled-feedback replay)",
+  "statistics": {
+    "unit": "participant (seeds averaged)",
+    "omnibus": "Friedman",
+    "posthoc": "Wilcoxon signed-rank vs CGAP Full",
+    "correction": "Holm (within metric)",
+    "ci": "t and percentile bootstrap",
+    "effect": "matched-pairs rank-biserial",
+    "tests_run": true,
+    "min_participants_for_tests": 6
+  },
+  "quick_mode": false,
+  "software": {
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+    "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "scikit_learn": "1.6.1",
+    "matplotlib": "3.10.0",
+    "statsmodels": "0.15.0"
+  },
+  "note": "SHAP: run kaggle_cgap_shap_figures.py with CGAP_SUBJECTS=ALL; it reads selected_checkpoint.csv written here."
+}

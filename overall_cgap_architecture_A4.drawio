@@ -1,0 +1,125 @@
+<mxfile host="Electron" agent="Codex">
+  <diagram id="cgap-a4" name="CGAP Overall Architecture">
+    <mxGraphModel dx="1008" dy="870" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="s1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=16;fontStyle=1;fontColor=#0F172A;fontFamily=Times New Roman;" value="1. Data acquisition" vertex="1">
+          <mxGeometry height="25" width="170" x="55" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="data" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;spacing=12;shadow=1;fontFamily=Times New Roman;" value="&lt;b&gt;WESAD wearable signals&lt;/b&gt;&lt;br&gt;&lt;br&gt;• ACC: movement dynamics&lt;br&gt;&amp;nbsp;• BVP: cardiovascular response&lt;div&gt;• EDA: sympathetic arousal&lt;br&gt;• Temperature: peripheral response&lt;/div&gt;" vertex="1">
+          <mxGeometry height="155" width="230" x="9" y="128" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=16;fontStyle=1;fontColor=#0F172A;fontFamily=Times New Roman;" value="2. Window processing and EDA" vertex="1">
+          <mxGeometry height="25" width="230" x="255" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="eda" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;spacing=12;shadow=1;fontFamily=Times New Roman;" value="&lt;b&gt;Window construction&lt;/b&gt;&lt;br&gt;&lt;br&gt;Fixed participant windows&lt;br&gt;Mean, standard deviation&lt;br&gt;Minimum and maximum&lt;br&gt;Class and subject checks" vertex="1">
+          <mxGeometry height="140" width="220" x="258" y="135.5" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=16;fontStyle=1;fontColor=#0F172A;fontFamily=Times New Roman;" value="3. Validated feature space" vertex="1">
+          <mxGeometry height="25" width="220" x="495" y="99" as="geometry" />
+        </mxCell>
+        <mxCell id="features" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=16;spacing=12;shadow=1;fontFamily=Times New Roman;" value="&lt;b&gt;24 sensor features&lt;/b&gt;&lt;br&gt;&lt;br&gt;12 ACC features&lt;br&gt;4 BVP features&lt;br&gt;4 EDA features&lt;br&gt;4 temperature features" vertex="1">
+          <mxGeometry height="140" width="207.5" x="497.5" y="135.5" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=16;fontStyle=1;fontColor=#0F172A;fontFamily=Times New Roman;" value="4. Leakage control" vertex="1">
+          <mxGeometry height="25" width="180" x="742" y="99" as="geometry" />
+        </mxCell>
+        <mxCell id="leak" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=16;spacing=12;shadow=1;gradientColor=#b3b3b3;fontFamily=Times New Roman;" value="&lt;b&gt;Participant-independent split&lt;/b&gt;&lt;br&gt;&lt;br&gt;Leave one participant out&lt;br&gt;Training-only imputation&lt;br&gt;Training-only scaling&lt;br&gt;Exclude label-derived columns" vertex="1">
+          <mxGeometry height="140" width="230" x="740" y="135.5" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeWidth=2;strokeColor=#334155;fontFamily=Times New Roman;fontSize=16;" target="eda">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="eda" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeWidth=2;strokeColor=#334155;fontFamily=Times New Roman;fontSize=16;" target="features">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="features" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeWidth=2;strokeColor=#334155;fontFamily=Times New Roman;fontSize=16;" target="leak">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s5" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=16;fontStyle=1;fontColor=#0F172A;fontFamily=Times New Roman;" value="5. CGAP learning architecture" vertex="1">
+          <mxGeometry height="25" width="250" x="35" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="global" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;spacing=12;shadow=1;fontFamily=Times New Roman;" value="&lt;b&gt;Global learning branch&lt;/b&gt;&lt;br&gt;&lt;br&gt;Extra-Trees classifier&lt;br&gt;Learns general cross-participant patterns&lt;br&gt;Outputs class probabilities&lt;br&gt;Stable initial prediction" vertex="1">
+          <mxGeometry height="140" width="280" x="9" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="online" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=16;spacing=12;shadow=1;fontFamily=Times New Roman;" value="&lt;b&gt;Online adaptation branch&lt;/b&gt;&lt;br&gt;&lt;br&gt;Scaled SGD classifier&lt;br&gt;Predict current window first&lt;br&gt;Receive labelled feedback afterward&lt;br&gt;Update user-specific patterns" vertex="1">
+          <mxGeometry height="140" width="280" x="350" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="fusion" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;spacing=12;shadow=1;fontFamily=Times New Roman;" value="&lt;b&gt;Probability fusion&lt;/b&gt;&lt;br&gt;&lt;br&gt;Global probability + online probability&lt;br&gt;Weighted adaptive blend&lt;br&gt;Final three-class decision" vertex="1">
+          <mxGeometry height="140" width="240" x="682" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="leak" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeWidth=2;strokeColor=#334155;fontFamily=Times New Roman;fontSize=16;entryX=1.018;entryY=0.429;entryDx=0;entryDy=0;entryPerimeter=0;" target="global">
+          <mxGeometry relative="1" x="0.1385" as="geometry">
+            <Array as="points">
+              <mxPoint x="815" y="310" />
+              <mxPoint x="340" y="310" />
+              <mxPoint x="340" y="390.1" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="leak" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeWidth=2;strokeColor=#334155;fontFamily=Times New Roman;fontSize=16;" target="online">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="815" y="310" />
+              <mxPoint x="490" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="global" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeWidth=2;strokeColor=#334155;fontFamily=Times New Roman;fontSize=16;" target="fusion">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="175" y="520" />
+              <mxPoint x="785" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="online" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeWidth=2;strokeColor=#334155;fontFamily=Times New Roman;fontSize=16;" target="fusion">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s6" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=16;fontStyle=1;fontColor=#0F172A;fontFamily=Times New Roman;" value="6. Evaluation and deployment" vertex="1">
+          <mxGeometry height="25" width="250" x="25" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="eval" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;spacing=12;shadow=1;fontFamily=Times New Roman;" value="&lt;b&gt;Evaluation&lt;/b&gt;&lt;br&gt;&lt;br&gt;15-subject LOSO × 3 seeds&lt;br&gt;Accuracy, balanced accuracy&lt;br&gt;Macro-F1, calibration, ablation" vertex="1">
+          <mxGeometry height="120" width="240" x="17" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="state" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=16;spacing=12;shadow=1;gradientColor=#b3b3b3;fontFamily=Times New Roman;" value="&lt;b&gt;Real-time HCI state&lt;/b&gt;&lt;br&gt;&lt;br&gt;Baseline / stress / amusement&lt;br&gt;Confidence-aware prediction&lt;br&gt;Continuous user adaptation" vertex="1">
+          <mxGeometry height="120" width="250" x="360" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="hci" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;spacing=12;shadow=1;gradientColor=#97d077;fontFamily=Times New Roman;" value="&lt;b&gt;Adaptive interface response&lt;/b&gt;&lt;br&gt;&lt;br&gt;Adjust notifications, workload, feedback, or interaction intensity&lt;br&gt;Feedback returns to online adaptation" vertex="1">
+          <mxGeometry height="120" width="245" x="711" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="fusion" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeWidth=2;strokeColor=#334155;fontFamily=Times New Roman;fontSize=16;" target="state">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="785" y="520" />
+              <mxPoint x="475" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="state" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeWidth=2;strokeColor=#334155;fontFamily=Times New Roman;fontSize=16;" target="hci">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="hci" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;dashed=1;strokeWidth=2;strokeColor=#64748B;fontFamily=Times New Roman;fontSize=16;" target="online">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="815" y="540" />
+              <mxPoint x="490" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeWidth=2;strokeColor=#334155;fontFamily=Times New Roman;fontSize=16;entryX=1;entryY=0.5;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" x="0.298" as="geometry">
+            <Array as="points">
+              <mxPoint x="785" y="521" />
+              <mxPoint x="280" y="521" />
+              <mxPoint x="280" y="631" />
+            </Array>
+            <mxPoint x="785" y="461" as="sourcePoint" />
+            <mxPoint x="257" y="631.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

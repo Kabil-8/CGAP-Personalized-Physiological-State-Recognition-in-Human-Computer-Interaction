@@ -1,0 +1,14 @@
+model,mean_within_participant_seed_sd_macro_f1
+CGAP Full,0.011445680559247561
+CGAP Full (feedback every 20),0.08062506391705174
+CGAP Full (feedback every 5),0.03135363350257895
+CGAP no class weights,0.014731419367683877
+CGAP no online updates,0.09341700279702968
+Global only,0.04145333319798082
+Logistic Regression,0.007808126976519485
+Majority Dummy,0.0
+Online only,0.011171328664454193
+Persistence (feedback every 20),0.0
+Persistence (feedback every 5),0.0
+Persistence (repeat last label),0.0
+RBF SVM,0.03901490559142047

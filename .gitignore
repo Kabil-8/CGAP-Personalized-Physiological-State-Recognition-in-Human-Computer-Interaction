@@ -1,0 +1,12 @@
+# Office and OS lock/temp files
+~$*
+.*.bkp
+*.tmp
+Thumbs.db
+[Dd]esktop.ini
+.DS_Store
+
+# Python & Jupyter checkpoints
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/

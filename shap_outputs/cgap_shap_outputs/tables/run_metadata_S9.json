@@ -1,0 +1,53 @@
+{
+  "subject": "S9",
+  "accuracy_static": 0.6359447004608295,
+  "macro_f1_static": 0.5234145970988077,
+  "lambda": 0.75,
+  "sgd_alpha": 0.0001,
+  "param_source": "/kaggle/input/datasets/kabil08/checkpoints/cgap_fast_checkpoints-20261027T050656Z-1-001/cgap_fast_checkpoints/selected_checkpoint.csv",
+  "n_train": 3064,
+  "n_test": 217,
+  "fused_additivity_mae": 1.7222045548918412e-16,
+  "fused_additivity_max_abs": 7.771561172376096e-16,
+  "seed": 42,
+  "n_trees": 80,
+  "features": [
+    "acc_1_mean",
+    "acc_1_std",
+    "acc_1_min",
+    "acc_1_max",
+    "acc_2_mean",
+    "acc_2_std",
+    "acc_2_min",
+    "acc_2_max",
+    "acc_3_mean",
+    "acc_3_std",
+    "acc_3_min",
+    "acc_3_max",
+    "bvp_mean",
+    "bvp_std",
+    "bvp_min",
+    "bvp_max",
+    "eda_mean",
+    "eda_std",
+    "eda_min",
+    "eda_max",
+    "temp_mean",
+    "temp_std",
+    "temp_min",
+    "temp_max"
+  ],
+  "excluded_columns": [
+    "subject",
+    "window",
+    "label",
+    "label_id"
+  ],
+  "classes": [
+    "amusement",
+    "baseline",
+    "stress"
+  ],
+  "shap_version": "0.52.0",
+  "scope": "Initial fitted models; 'adapted' variant uses labelled-feedback replay on the held-out participant."
+}

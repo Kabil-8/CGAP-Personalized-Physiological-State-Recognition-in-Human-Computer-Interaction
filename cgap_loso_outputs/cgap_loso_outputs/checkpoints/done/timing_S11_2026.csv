@@ -1,0 +1,2 @@
+seed,held_out_subject,tuning_seconds,test_fit_eval_seconds,total_seconds,peak_rss_mb,n_train_windows,n_test_windows,cgap_online_ms_per_window
+2026,S11,28.038950186999955,3.485192685999891,33.245110908000015,292.859375,3061,220,1.8573881454544376

@@ -1,0 +1,8 @@
+seed,held_out_subject,model,inner_macro_f1,best_params
+2026,S11,Logistic Regression,0.4360309628921349,"[10.0, ""balanced""]"
+2026,S11,RBF SVM,0.4635543702527702,"[10.0, ""scale"", ""balanced""]"
+2026,S11,CGAP,0.943518711135194,"{""tree_max_features"": 1.0, ""tree_min_samples_leaf"": 5, ""sgd_alpha"": 0.0001, ""online_blend_weight"": 0.75}"
+2026,S11,Global only,0.4061436227149476,"{""tree"": [0.8, 2]}"
+2026,S11,Online only,0.9466364614955078,"{""sgd_alpha"": 0.0001}"
+2026,S11,CGAP no online updates,0.4154773101488017,"{""tree"": [0.8, 2], ""sgd_alpha"": 0.0001, ""online_blend_weight"": 0.5}"
+2026,S11,CGAP no class weights,0.9240339469064703,"{""tree"": [""sqrt"", 2], ""sgd_alpha"": 0.0001, ""online_blend_weight"": 0.75}"
